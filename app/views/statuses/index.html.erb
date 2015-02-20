@@ -1,17 +1,22 @@
-<h1>Updates</h1>
+<h1>Statuses</h1>
+
+<%= link_to 'New Status', new_status_path %>
+
+<br>
+<br>
 
 <table>
   <thead>
     <tr>
-      <td>Update</td>
+      <td>Status</td>
       <td>User</td>
       <td>Likes</td>
     </tr>
   </thead>
   <tbody>
-    <% @updates.each do |update| %>
+    <% @statuses.each do |update| %>
     <tr>
-      <td> <%= link_to update.status, update_path(update) %> </td>
+      <td> <%= link_to update.status, status_path(update) %> </td>
       <td> <%= update.user %> </td>
       <td> <%= update.likes %> </td>
     </tr>

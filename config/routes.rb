@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :statuses
 
-root 'updates#index'
+root 'statuses#index'
 
-resources :updates
+
 
   # Example resource route with sub-resources:
   #   resources :products do
