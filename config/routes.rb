@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 root 'statuses#index'
 
 
+ post 'statuses/:id/vote_for' => 'statuses#vote_for', as: :vote_for_status
 
   # Example resource route with sub-resources:
   #   resources :products do

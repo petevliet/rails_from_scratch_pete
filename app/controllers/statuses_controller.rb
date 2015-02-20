@@ -8,12 +8,20 @@ class StatusesController < ApplicationController
     @status = Status.find(params[:id])
   end
 
+  def vote_for
+    @status = Status.find(params[:id])
+    @status.likes += 1
+    @status.save
+    redirect_to root_path, notice: 'You have liked'
+  end
+
   def new
     @status = Status.new
   end
 
   def create
     @status = Status.new(status_params)
+    @status.likes = 0
 
     if @status.save
       redirect_to @status, notice: 'Update successfully added'

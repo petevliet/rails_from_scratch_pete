@@ -1,5 +1,12 @@
 <h1> "<%= @status.status %>" </h1>
-<h3>by: <%= @status.user %> </h3>
+<h3>by: <%= @status.user %>
+<br>
+Likes: <%= @status.likes %> </h3>
+<br>
+
+<%= button_to 'like', vote_for_status_path(@status) %>
+<%= link_to 'edit', edit_status_path(@status) %>
+<%= link_to 'delete', @status, method: :delete %>
 <br>
 <br>
 <%= link_to 'back', statuses_path %>
