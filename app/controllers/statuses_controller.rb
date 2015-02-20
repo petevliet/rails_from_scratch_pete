@@ -24,12 +24,21 @@ class StatusesController < ApplicationController
   end
 
   def edit
+    @status = Status.find(params[:id])
   end
 
   def update
+    @status = Status.find(params[:id])
+    @status.update(status_params)
+
+    redirect_to status_path, notice: 'Status was successfully updated.'
   end
 
   def destroy
+    @status = Status.find(params[:id])
+
+    @status.destroy
+    redirect_to statuses_path, notice: 'Status was successfully destroyed.'
   end
 
   private
