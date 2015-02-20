@@ -26,7 +26,6 @@ class StatusesController < ApplicationController
     if @status.save
       redirect_to @status, notice: 'Update successfully added'
     else
-      flash[:alert] = 'Errors on the page. This isn\'t that difficult'
       render :new
     end
   end
@@ -37,9 +36,11 @@ class StatusesController < ApplicationController
 
   def update
     @status = Status.find(params[:id])
-    @status.update(status_params)
-
-    redirect_to status_path, notice: 'Status was successfully updated.'
+    if @status.update(status_params)
+      redirect_to status_path, notice: 'Status was successfully updated.'
+    else
+      render :new
+    end
   end
 
   def destroy
