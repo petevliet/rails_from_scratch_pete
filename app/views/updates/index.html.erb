@@ -1,1 +1,20 @@
 <h1>Updates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>Update</td>
+      <td>User</td>
+      <td>Likes</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @updates.each do |update| %>
+    <tr>
+      <td> <%= link_to update.status, update_path(update) %> </td>
+      <td> <%= update.user %> </td>
+      <td> <%= update.likes %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
