@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'user can CRUD statuses' do
 
   before :each do
-    @status = Status.create(status: "This is an example", user: "superman")
+    @status = Status.create(status: "This is an example", user: "superman", likes: "0")
   end
 
   scenario 'user can create a status' do
@@ -45,6 +45,14 @@ describe 'user can CRUD statuses' do
     visit '/'
     click_on 'delete'
     expect(page).to have_content('Status was successfully destroyed.')
+
+  end
+
+  scenario 'user can like a status' do
+
+    visit '/'
+    click_on 'like'
+    expect(page).to have_content('You have liked')
 
   end
 
